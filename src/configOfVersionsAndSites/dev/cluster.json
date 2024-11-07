@@ -1,0 +1,48 @@
+{
+    "sCluster": "dev"
+    ,"iDesiredVersionOfPatient": 37
+    ,"bUseTrickleIce": true
+    ,"bOfferToReceiveAudio": true
+    ,"bOfferToReceiveVideo": true
+    ,"oDesiredConstraintsOnAudioSensor": {}
+    ,"oDesiredConstraintsOnVideoSensor": {
+        "facingMode": "user"
+        ,"width": {
+            "ideal": 320
+        }
+        ,"height": {
+            "ideal": 240
+        }
+        ,"frameRate": {
+            "ideal": 15
+        }
+    }
+    ,"bProvideDataChannel": true
+    ,"iMsecBetweenPollsForConnectionStatistics": 10000
+
+    ,"iMsecTimeout_Restfuldb": 10000
+    ,"iMsecTimeout_BetweenDbRequests": 500
+    ,"iSecTimeout_NoUserSelectionYet": 300
+    ,"iSecTimeout_NoUserSelectionNorKeepAliveYet": 10
+    ,"iMsecInterval_SendAnyNonEmptyEncounteredProblems": 2000
+
+    ,"iHowManyRecentResultsWeCareAbout_AnalyzedVideoSnippet": 5
+    ,"dMinDifference_MaxAndAvgBrightness_ToConsiderTheWebcamNotCovered": 10.0
+    ,"dMinAcceptable_Brightness": 40.0
+    ,"dMinAcceptable_NonBlurriness": 90.0
+    ,"dMinAcceptable_BoundingBoxRelativeSize": 0.15
+    ,"dMaxAcceptable_BoundingBoxRelativeSize": 0.25
+
+    ,"iHowManyRecentResultsWeCareAbout_FinishedAudioAnalyses": 5
+    ,"dMinAcceptable_Decibels": 40.0
+    ,"dMaxAcceptable_Decibels": 85.0
+
+    ,"sFolderForFrozenFrontend": ""
+    ,"oLocalization": {
+        "enUS": {
+            "translation": {
+                "h1-title": "Health Monitoring Session"
+            }
+        }
+    }
+}

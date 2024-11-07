@@ -1,0 +1,114 @@
+:root {
+    --color-of-page-background: white;
+    --color-of-popup-background: white;
+    --color-of-primary-stimulus-text: #e76a4a;
+    --color-of-secondary-stimulus-text: gray;
+    --color-of-instructional-text: #0f1d40;
+    --color-of-dark-accent: rgb(208, 99, 56); /* dark orange */
+    --gradient-of-primary-buttons: linear-gradient(
+        180deg,
+        #f49b5b 0%,
+        #f27555 100%
+        );
+    --color-of-header-and-footer: #ffffff;
+    --color-of-section-headings-text: #0f1d40;
+    --color-of-text-inputs-background: lightyellow;
+    --color-of-focused-dropdown-or-checkbox-background: #ffe4db; /* #ff9979; */ /* #f7dab7; */ /* pale orange */
+    --color-of-button-upon-hover: linear-gradient(
+        180deg,
+        #ffa869 0%,
+        #f78163 100%
+        );
+    --color-of-button-upon-focus: orangered;
+    --color-of-background-for-highlighted-text: yellow;
+    --color-of-link-text: #293241; /* very dark grey */
+    --color-of-focused-row-in-sections-menu: #87cefa;
+    --color-of-nonfocused-row-in-sections-menu: lightgray;
+    --color-of-progress-bar: #ffa98e; /* #fce5dc; */
+    --color-of-checkbox-border: darkorange;
+
+    --border-color: #eeeff2;
+    --secondary-btn-hover-bg-color: #fff6f3;
+    --secondary-btn-border-color: #ffa98e;
+    --white-color: #ffffff;
+    --disabled-button-bg-color: #eeeff2;
+    --grey-text-color: #525c76;
+    --primary-button-shadow-color: #ffb49c;
+    --disabled-button-border-color: #e2e4e8;
+    --shadow-color: rgba(0, 0, 0, 0.1);
+    --table-and-end-call-btn-bg-color: #fafafb;
+    --success-color: #0bb07b;
+    --success-button-hover-bg-color: #35c496;
+    --success-button-shadow-color: #7ee4c4;
+    --success-button-border-color: #3ed3a3;
+    --play-btn-hover-bg-color: #f1fffb;
+    /* TODO Fix webpack.config.js so fonts and binaries placed at any level under configOfVersionsAndSites/ get working references under dist/
+    --virtual-agent-image-url: url(./eca.png);
+    */
+    --virtual-agent-image-shadow: 0px 0px 0px 3px #ff8161;
+}
+* {
+    padding: 0;
+    margin: 0;
+}
+html,
+body,
+#container {
+    min-height: 100vh !important;
+    /* height: 100vh; */
+    /* background-color: var(--color-of-page-background); Disabled for RND-3590 */
+    font-family: "Roboto";
+}
+body {
+    overscroll-behavior: contain;
+    overflow: hidden; /* overscroll-behavior:contain; works only on Chrome/Android. So also adapted from https://stackoverflow.com/a/69589919 */
+    background-color: transparent; /* Introduced for RND-3590 */
+}
+
+/* roboto-regular - latin, as directed at http://google-webfonts-helper.herokuapp.com/fonts/roboto?subsets=latin for "modern browsers"
+   woff2 is for: Chrome 26+, Opera 23+, Firefox 39+
+   woff  is for: Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+
+*/
+/* TODO Fix webpack.config.js so fonts and binaries placed at any level under configOfVersionsAndSites/ get working references under dist/
+@font-face {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  src: local(''),
+       url('./roboto-v30-latin-regular.woff2') format('woff2'),
+       url('./roboto-v30-latin-regular.woff') format('woff');
+}
+*/
+#container {
+    position: relative; /* Seems necessary to keep the footer at the bottom */
+    font-size: 1rem;
+    /* overscroll-behavior:contain; didn't work. Adapted from https://stackoverflow.com/a/69589919 */
+    height: 100vh;
+    overflow-y: auto;
+    /* -webkit-overflow-scrolling: touch; DZP/2022-04-01 Hides mirror in camera test */
+}
+
+/* Mobile-friendly/non-hover-based 'abbr' elements. Adapted from https://modernweb.com/enhancing-the-html-abbr-element-on-mobile/ */
+abbr[title]:after {
+    content: " (" attr(title) ")";
+    font-weight: 400;
+    font-style: italic;
+}
+.surveyQuestionFooter {
+    display: none; /* Hide the footer by default; show it only for devices that have a cursor that can hover. (Search for the other appearance of this comment.) */
+}
+
+.h1,
+h1 {
+    font-size: 0.8rem;
+}
+.h2,
+h2 {
+    font-size: 0.9rem;
+}
+.h3,
+h3 {
+    text-decoration: underline;
+    font-size: 1rem;
+}
+
