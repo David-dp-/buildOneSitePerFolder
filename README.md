@@ -13,7 +13,7 @@ Belgian French (i.e., fr-BE).
 
 Also, for your technical team, you want to be able to keep all changes under development safely separate from the production versions
 by keeping production versions in "hotfix folders" (e.g., "v35") while changes under development are kept in a sibling folder (e.g., "dev").
-To make this visually obvious, the text color of an <h1> is made green for dev and blue for production.
+To make this visually obvious, the text color of an &lt;h1&gt; is made green for dev and blue for production.
 
 ## Build
 1. `cd` in your terminal to be inside the folder where this README.md exists
