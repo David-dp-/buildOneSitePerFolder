@@ -19,4 +19,4 @@ To make this visually obvious, the text color of an &lt;h1&gt; is made green for
 1. `cd` in your terminal to be inside the folder where this README.md exists
 1. If there is no node_modules/ sibling folder, run `npm install`
 1. Build all the configured sites: `npm run build`
-1. Using a browser on the same machine, open `dist/index.html`
+1. Using a browser on the same machine, open each `index.html` that you find under `dist/`
