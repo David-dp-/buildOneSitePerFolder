@@ -2,6 +2,7 @@
 *.bak
 *.cache
 *.DS_Store
+*.kate-swp
 *.log
 *.pyc
 *.swp
