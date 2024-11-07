@@ -34,12 +34,6 @@ const mPath
         = "dist"
     ,sIndentationToAdd
         = "  "
-    ,sAwsRegionToUploadTo
-        = process.env?.sAwsRegionOfThisModalityComponent
-    ,sAwsCredential_AccessKeyId
-        = process.env?.sAwsCredential_AccessKeyId
-    ,sAwsCredential_SecretAccessKey
-        = process.env?.sAwsCredential_SecretAccessKey
     ;
 
 function fsReadableJson(oJson) {
@@ -438,49 +432,6 @@ module.exports = {
                                     ,"index.html"
                                 )
                                 ,sContentOfIndexHtmlToWrite
-                            );
-                        }
-                        if (   sAwsCredential_AccessKeyId
-                            && sAwsCredential_SecretAccessKey
-                            )
-                        {
-                            //Adapted from https://stackoverflow.com/a/67059161/6856046
-                            //See also https://docs.aws.amazon.com/cli/latest/userguide/cli-configure-envvars.html#envvars-list
-                            const oOptionsForChildProcess_includingAwsCredentials
-                                    = {
-                                        env: {
-                                                ...process.env
-                                                ,AWS_ACCESS_KEY_ID:     sAwsCredential_AccessKeyId
-                                                ,AWS_SECRET_ACCESS_KEY: sAwsCredential_SecretAccessKey
-                                                ,AWS_REGION:            sAwsRegionToUploadTo
-                                            }
-                                    };
-                            //Replace any web files that we want to be cacheable (i.e., not html) and delete any leftovers.
-                            // See https://awscli.amazonaws.com/v2/documentation/api/latest/reference/s3/index.html#use-of-exclude-and-include-filters
-                            mExec(
-                                `aws s3 sync ${sRelativeFolderpathToDist} s3://webapi.modality.ai/pwa --delete --metadata-directive REPLACE --exclude "*.html"`
-                                ,oOptionsForChildProcess_includingAwsCredentials
-                                ,(xErr_ignored, sContentForStandardTerminalOutput, sContentForStandardTerminalErrorLogging) => {
-                                    if (sContentForStandardTerminalOutput) {
-                                        process.stdout.write(sContentForStandardTerminalOutput);
-                                    }
-                                    if (sContentForStandardTerminalErrorLogging) {
-                                        process.stderr.write(sContentForStandardTerminalErrorLogging);
-                                    }
-                                }
-                            );
-                            //Replace any html files while ensuring they won't be cached, and delete any leftovers.
-                            mExec(
-                                `aws s3 sync ${sRelativeFolderpathToDist} s3://webapi.modality.ai/pwa --delete --metadata-directive REPLACE --exclude "*" --include "*.html" --cache-control "no-cache"`
-                                ,oOptionsForChildProcess_includingAwsCredentials
-                                ,(xErr_ignored, sContentForStandardTerminalOutput, sContentForStandardTerminalErrorLogging) => {
-                                    if (sContentForStandardTerminalOutput) {
-                                        process.stdout.write(sContentForStandardTerminalOutput);
-                                    }
-                                    if (sContentForStandardTerminalErrorLogging) {
-                                        process.stderr.write(sContentForStandardTerminalErrorLogging);
-                                    }
-                                }
                             );
                         }
                     }
